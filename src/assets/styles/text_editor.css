@@ -1,5 +1,5 @@
 /* Target the placeholder within the Tiptap editor */
-.tiptap p.is-editor-empty:first-child::before {
+.tiptap p.is-empty::before {
   content: attr(data-placeholder);
   float: left;
   color: #94a3b8; /* Tailwind slate-400 color */
@@ -9,9 +9,7 @@
 
 /* Basic editor styling to make it look like an input */
 .tiptap {
-  min-height: 150px;
-  padding: 0 0.5rem;
-  outline: none;
+  @apply pl-6 min-h-[150px] outline-none transition-all duration-200;
 }
 
 .tiptap p {
@@ -36,4 +34,31 @@
 
 .ProseMirror h3 {
   @apply text-2xl font-medium mb-2 mt-4;
+}
+
+/* Drag Handle */
+.custom-drag-handle {
+  @apply flex items-center justify-center w-6 h-6 rounded cursor-grab text-border transition-all duration-200;
+}
+
+.custom-drag-handle:hover {
+  @apply text-primary;
+}
+
+.custom-drag-handle:active {
+  @apply cursor-grabbing text-primary;
+}
+
+/* Floating menu */
+.tippy-box[data-animation='fade'][data-state='hidden'] {
+  opacity: 0;
+}
+
+.floating-menu-container {
+  @apply flex flex-col p-1 bg-white border border-gray-200 shadow-lg rounded-md;
+}
+
+/* Unordered list */
+.tiptap ul {
+  @apply list-disc pl-6 my-4;
 }

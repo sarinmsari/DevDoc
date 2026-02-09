@@ -19,7 +19,7 @@ const Editor = () => {
       <input
         type="text"
         ref={titleRef}
-        className="w-full p-2 text-textPrimary bg-transparent outline-none text-5xl font-medium"
+        className="w-full p-2 pl-6 text-textPrimary bg-transparent outline-none text-5xl font-medium"
         placeholder="Untitled Document"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
