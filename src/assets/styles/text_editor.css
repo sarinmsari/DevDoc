@@ -1,19 +1,39 @@
 /* Target the placeholder within the Tiptap editor */
 .tiptap p.is-editor-empty:first-child::before {
-    content: attr(data-placeholder);
-    float: left;
-    color: #94a3b8; /* Tailwind slate-400 color */
-    pointer-events: none;
-    height: 0;
-  }
-  
-  /* Basic editor styling to make it look like an input */
-  .tiptap {
-    min-height: 150px;
-    padding: 0 0.5rem;
-    outline: none;
-  }
-  
-  .tiptap p {
-    margin: 0;
-  }
+  content: attr(data-placeholder);
+  float: left;
+  color: #94a3b8; /* Tailwind slate-400 color */
+  pointer-events: none;
+  height: 0;
+}
+
+/* Basic editor styling to make it look like an input */
+.tiptap {
+  min-height: 150px;
+  padding: 0 0.5rem;
+  outline: none;
+}
+
+.tiptap p {
+  @apply m-0;
+}
+
+.tiptap blockquote {
+  @apply text-textSecondary border-l border-l-4 border-primary pl-4 mx-0 my-2 italic;
+}
+
+.tiptap blockquote p {
+  @apply my-2;
+}
+
+.ProseMirror h1 {
+  @apply text-4xl font-bold mb-4 mt-6;
+}
+
+.ProseMirror h2 {
+  @apply text-3xl font-semibold mb-3 mt-5;
+}
+
+.ProseMirror h3 {
+  @apply text-2xl font-medium mb-2 mt-4;
+}
