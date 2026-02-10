@@ -8,7 +8,7 @@ import Editor from './pages/Editor'
 function App() {
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden relative">
       <SideBar />
       <Editor />
     </div>

@@ -13,28 +13,35 @@ import NumberedListIcon from "@mui/icons-material/FormatListNumbered";
 import Dropdown from "@/Components/UiComponents/Dropdown";
 
 const BubbleMenuComponent = ({ editor }: any) => {
+  if (!editor) {
+    return null;
+  }
 
-    const headingOptions = [
-    { label: 'Paragraph', value: 'p' },
-    { label: 'Heading 1', value: '1' },
-    { label: 'Heading 2', value: '2' },
-    { label: 'Heading 3', value: '3' },
-    { label: 'Heading 4', value: '4' },
+  const headingOptions = [
+    { label: "Paragraph", value: "p" },
+    { label: "Heading 1", value: "1" },
+    { label: "Heading 2", value: "2" },
+    { label: "Heading 3", value: "3" },
+    { label: "Heading 4", value: "4" },
   ];
 
   const getCurrentHeading = () => {
-    if (editor?.isActive('heading', { level: 1 })) return '1';
-    if (editor?.isActive('heading', { level: 2 })) return '2';
-    if (editor?.isActive('heading', { level: 3 })) return '3';
-    if (editor?.isActive('heading', { level: 4 })) return '4';
-    return 'p';
+    if (editor?.isActive("heading", { level: 1 })) return "1";
+    if (editor?.isActive("heading", { level: 2 })) return "2";
+    if (editor?.isActive("heading", { level: 3 })) return "3";
+    if (editor?.isActive("heading", { level: 4 })) return "4";
+    return "p";
   };
 
   const handleHeadingChange = (value) => {
-    if (value === 'p') {
+    if (value === "p") {
       editor.chain().focus().setParagraph().run();
     } else {
-      editor.chain().focus().toggleHeading({ level: parseInt(value) }).run();
+      editor
+        .chain()
+        .focus()
+        .toggleHeading({ level: parseInt(value) })
+        .run();
     }
   };
 
@@ -43,9 +50,11 @@ const BubbleMenuComponent = ({ editor }: any) => {
       editor={editor}
       className="bg-mainBg px-4 py-2 rounded-xl border border-border"
     >
-      <Dropdown options={headingOptions} 
-            value={getCurrentHeading()} 
-            onChange={handleHeadingChange} />
+      <Dropdown
+        options={headingOptions}
+        value={getCurrentHeading()}
+        onChange={handleHeadingChange}
+      />
 
       <IconButton
         title="Bold"

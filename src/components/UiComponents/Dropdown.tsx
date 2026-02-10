@@ -6,9 +6,10 @@ interface DropdownProps {
   options: Array<{ value: string | number; label: string }>;
   onChange: (value: string | number) => void;
   placeholder?: string;
+  headerContent?: React.ReactNode;
 }
 
-const Dropdown = ({ value, options, onChange, placeholder = "Select..." }: DropdownProps) => {
+const Dropdown = ({ value, options, onChange, placeholder = "Select...", headerContent }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -24,14 +25,39 @@ const Dropdown = ({ value, options, onChange, placeholder = "Select..." }: Dropd
 
   const selectedOption = options.find((opt) => opt.value === value);
 
+  // Helper to render the icon slot
+  const renderIcon = (Icon: DropdownOption['icon']) => {
+    if (!Icon) return null;
+    return (
+      <div className="flex items-center justify-center w-5 h-5 shrink-0">
+        {typeof Icon === 'string' ? (
+          <span className="text-[10px] font-bold">{Icon}</span>
+        ) : (
+          <Icon sx={{ fontSize: 18 }} />
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="relative inline-block" ref={dropdownRef}>
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between min-w-[120px] gap-2 px-3 py-1.5 text-sm font-medium bg-mainBg border border-border text-textSecondary hover:text-textPrimary rounded-md transition-all"
+        className="flex items-center justify-between group/dropdown-header min-w-[120px] gap-2 px-3 py-1.5 text-sm font-medium bg-mainBg border border-border text-textSecondary hover:text-textPrimary rounded-md transition-all"
       >
-        <span className="truncate">{selectedOption ? selectedOption.label : placeholder}</span>
+        <div className="flex items-center gap-2 truncate w-full">
+          {headerContent ? (
+            headerContent
+          ) : (
+            <>
+              {selectedOption && renderIcon(selectedOption.icon)}
+              <span className="truncate">
+                {selectedOption ? selectedOption.label : placeholder}
+              </span>
+            </>
+          )}
+        </div>
         <ExpandMoreIcon className={`text-textSecondary transform-gpu duration-200 transition-transform ease-in-out ${isOpen ? 'rotate-180' : ''}`} fontSize="small" />
       </button>
 
@@ -44,10 +70,11 @@ const Dropdown = ({ value, options, onChange, placeholder = "Select..." }: Dropd
                 onChange(opt.value);
                 setIsOpen(false);
               }}
-              className={`w-full text-left px-3 py-2 text-sm transition-colors hover:bg-secondaryBg ${
+              className={`w-full text-left px-3 py-2 text-sm flex gap-3 transition-colors hover:bg-secondaryBg ${
                 value === opt.value ? 'text-textPrimary font-semibold' : 'text-textSecondary'
               }`}
             >
+              {renderIcon(opt.icon)}
               {opt.label}
             </button>
           ))}
