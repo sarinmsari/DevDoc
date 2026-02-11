@@ -50,7 +50,7 @@ const Editor = () => {
         />
 
         {/* Text Editor */}
-        <div className="mt-8">
+        <div className="mt-8 prose prose-invert max-w-none">
           <TextEditor editor={editor} />
         </div>
       </div>

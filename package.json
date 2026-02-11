@@ -14,6 +14,7 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.7",
     "@mui/material": "^7.3.7",
+    "@tailwindcss/typography": "^0.5.19",
     "@tiptap/extension-bubble-menu": "^3.19.0",
     "@tiptap/extension-collaboration": "^3.19.0",
     "@tiptap/extension-drag-handle": "^3.19.0",

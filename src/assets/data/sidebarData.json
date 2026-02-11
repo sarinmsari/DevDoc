@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1",
+    "name": "Personal Projects",
+    "type": "folder",
+    "isOpen": true,
+    "children": [
+      {
+        "id": "1-1",
+        "name": "Idea Brainstorming",
+        "type": "file",
+        "lastModified": "2026-02-10T14:30:00Z"
+      },
+      {
+        "id": "1-2",
+        "name": "Website Redesign",
+        "type": "folder",
+        "isOpen": false,
+        "children": [
+          {
+            "id": "1-2-1",
+            "name": "Color Palette",
+            "type": "file"
+          },
+          {
+            "id": "1-2-2",
+            "name": "Reference Links",
+            "type": "file"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Work",
+    "type": "folder",
+    "isOpen": false,
+    "children": [
+      {
+        "id": "2-1",
+        "name": "Meeting Notes - Feb 11",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "App_Settings",
+    "type": "file"
+  }
+]

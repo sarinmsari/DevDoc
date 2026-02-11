@@ -87,7 +87,7 @@ const FloatingMenuComponent = ({ editor }) => {
               onClick={item.command}
               className="w-full flex items-center gap-3 px-3 py-2 text-sm text-left text-textSecondary hover:bg-secondaryBg hover:text-textPrimary rounded-md transition-colors"
             >
-              <div className="flex items-center justify-center w-8 h-8 text-secondaryText group-hover:text-primaryText group-hover:bg-secondaryBg transition-colors">
+              <div className="flex items-center justify-center w-8 h-8 text-textSecondary group-hover:text-textPrimary group-hover:bg-secondaryBg transition-colors">
                 {typeof item.icon !== "string" ? (
                   <item.icon sx={{ fontSize: 18 }} />
                 ) : (

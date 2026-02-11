@@ -64,7 +64,7 @@ const DocHandler = ({ editor }: any) => {
           onChange={(value)=>handlePageChange(value)}
           headerContent={changedPagesHeader}
         />
-        <button onClick={(event)=>handleDocSave(event)} className="px-4 py-1.5 bg-primary text-primaryText rounded-md hover:bg-opacity-80 transition-colors flex items-center gap-2">
+        <button onClick={(event)=>handleDocSave(event)} className="px-4 py-1.5 bg-primary text-textPrimary rounded-md hover:bg-opacity-80 transition-colors flex items-center gap-2">
           <SaveOutlinedIcon sx={{ fontSize: 18 }} />
           Save
         </button>
